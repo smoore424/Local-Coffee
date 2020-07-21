@@ -23,11 +23,11 @@ class Header extends Component {
         return (
             <React.Fragment>
                 <Jumbotron fluid>
-                    <img class="img-fluid" src="/assets/images/coffee-shop-header.jpg" alt="people holding coffee" width="100%" />
+                    <img className="img-fluid" src="/assets/images/coffee-shop-header.jpg" alt="people holding coffee" width="100%" />
                 </Jumbotron>
                 
                 <Navbar dark sticky="top" expand="md">
-                    <div class="container">
+                    <div className="container">
                         <NavbarBrand className="mr-auto" href="/">Local Coffee Shop</NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
