@@ -57,7 +57,7 @@ class Header extends Component {
                     </div>
                 </Navbar>
             </React.Fragment>
-        )
+        );
     }
 }
 
