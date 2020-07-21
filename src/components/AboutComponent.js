@@ -24,8 +24,7 @@ class About extends Component {
                         <div className="card bg-light mt-3">
                             <blockquote className="blockquote card-body">
                                 <p className="mb-0">“We make a living by what we get, but we make a life by what we give.”</p>
-                                <footer className="blockquote-footer">Winston Churchill
-                        </footer>
+                                <footer className="blockquote-footer">Winston Churchill</footer>
                             </blockquote>
                         </div>
                     </div>

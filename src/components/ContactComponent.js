@@ -1,5 +1,8 @@
+//TODO add google map
+//TODO add contact form
+
+
 import React, { Component } from 'react';
-import About from './AboutComponent';
 
 class Contact extends Component {
     render() {

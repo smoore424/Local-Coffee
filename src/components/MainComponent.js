@@ -10,12 +10,18 @@ import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 
 class Main extends Component {
     render() {
-        return(
 
+        const HomePage = () => {
+            return (
+                <Home />
+            );
+        }
+
+        return(
             <div>
                 <Header />
                 <Switch>
-                    <Route exact path='/home' component={Home} />
+                    <Route path='/home' component={HomePage} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={Contact} />
                     <Redirect to='/home' />
