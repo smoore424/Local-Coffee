@@ -1,3 +1,6 @@
+//TODO hamburger menu not expanding on click
+
+
 import React, { Component } from 'react';
 import { Nav, Jumbotron, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
