@@ -1,7 +1,5 @@
 //TODO fix on hoover styles
-//TODO fix social buttons
-
-
+//TODO fix social buttons problem may be with the version of bootstrap i am using.
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';

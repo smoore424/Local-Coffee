@@ -4,18 +4,21 @@
 import React, { Component } from 'react';
 import { Nav, Jumbotron, Navbar, NavbarBrand, NavbarToggler, Collapse, NavItem } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+
 class Header extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
-            isNavOpen: false,
+            isNavOpen: false
         };
+
         this.toggleNav = this.toggleNav.bind(this);
     }
 
     toggleNav() {
-        this.state({
+        this.setState({
             isNavOpen: !this.state.isNavOpen
         })
     }
@@ -39,11 +42,6 @@ class Header extends Component {
                                     </NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/about">
-                                        About
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
                                     <NavLink className="nav-link" to="/menu">
                                         Menu
                                     </NavLink>
@@ -51,6 +49,11 @@ class Header extends Component {
                                 <NavItem>
                                     <NavLink className="nav-link" to="/contact">
                                         Contact
+                                    </NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink className="nav-link" to="/about">
+                                        About
                                     </NavLink>
                                 </NavItem>
                             </Nav>

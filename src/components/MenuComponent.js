@@ -1,6 +1,14 @@
+//TODO: add form to modal
+//TODO: add a heading to the page
+//TODO: Fix image sizes and re-upload into assets
+//TODO: get correct image to show when modal toggled.
+//TODO: build form on modal
+//TODO: uniform card sizes
+
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, ModalHeader, ModalBody, Button} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
 import { MENUITEMS } from '../shared/menuitems';
+
 
 class Menu extends Component {
 
@@ -8,7 +16,6 @@ class Menu extends Component {
         super(props);
     
         this.state = {
-            
             isModalOpen: false
         };
 
@@ -18,36 +25,32 @@ class Menu extends Component {
     toggleModal() {
         this.setState({
             isModalOpen: !this.state.isModalOpen
-        })
+        });
     }
 
-
-
-
-
     render() {
-        // TODO:  add a heading the the page 
         const menu = this.props.menuitems.map(menuitem => {
             return(
-                <div>
-                    <div key={menuitem.id} className="col-md-4">
-                        <Card>
-                            {/* need to fix image sizes and re-upload into assets*/}
-                            <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
-                            <CardBody>
-                                <CardTitle>
-                                    <h2>{menuitem.name}</h2>
-                                </CardTitle>
-                                <CardText>
-                                    <p>{menuitem.description}</p>
-                                    <h3>{menuitem.cost}</h3> 
-                                </CardText>
-                        {/* TODO:  button below needs to launch modal. */}
-                                <Button>Order Now</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                    
+                        <div key={menuitem.id} className="col-md-4">
+                            <Card>
+                                <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
+                                <CardBody>
+                                    <CardTitle>
+                                        <h2>{menuitem.name}</h2>
+                                    </CardTitle>
+                                    <CardText>
+                                        <p>{menuitem.description}</p>
+                                        <h3>{menuitem.cost}</h3> 
+                                    </CardText>
+                                    <Button onClick={this.toggleModal}>Order Now</Button>
+                                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                                        <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
+                                        <ModalBody>
+                                        <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+                                    </ModalBody>                        
+                                    </Modal>
+                                </CardBody>
+                            </Card>
                 </div>
             );
         });

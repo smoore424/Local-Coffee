@@ -32,9 +32,9 @@ class Main extends Component {
                 <Header />
                 <Switch>
                     <Route path='/home' component={HomePage} />
-                    <Route exact path='/about' component={About} />
-                    <Route exact path='/contact' component={Contact} />
                     <Route exaact path='/menu' render={() => <Menu menuitems={this.state.menuitems} />}  />
+                    <Route exact path='/contact' component={Contact} />
+                    <Route exact path='/about' component={About} />   
                     <Redirect to='/home' />
                 </Switch>
                 <Footer />
