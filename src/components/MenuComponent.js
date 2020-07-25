@@ -8,7 +8,7 @@ class Menu extends Component {
         super(props);
     
         this.state = {
-            menuitems: MENUITEMS,
+            
             isModalOpen: false
         };
 
@@ -21,40 +21,33 @@ class Menu extends Component {
         })
     }
 
-    // render() {
-    //     return (
-    //         <Modal>
-    //             <ModalHeader>Customize</ModalHeader>
-    //             <ModalBody>
-                    
-    //             </ModalBody>
-    //         </Modal>
-    //     );
-    // }
+
+
+
 
     render() {
+        // TODO:  add a heading the the page 
         const menu = this.props.menuitems.map(menuitem => {
             return(
-                <div key={menuitem.id} className="col-md-4">
-                    <Card>
-                        {/* need to fix image sizes and re-upload into assets*/}
-                    <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
-                    <CardBody>
-                        <CardTitle>
-                            <h2>{menuitem.name}</h2>
-                        </CardTitle>
-                        <CardText>
-                            <p>{menuitem.description}</p>
-                            <h3>{menuitem.cost}</h3> 
-                        </CardText>
-                    {/* button below needs to launch modal. */}
-                    <Button>Order Now</Button>
-                    </CardBody>
-                        
+                <div>
+                    <div key={menuitem.id} className="col-md-4">
+                        <Card>
+                            {/* need to fix image sizes and re-upload into assets*/}
+                            <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
+                            <CardBody>
+                                <CardTitle>
+                                    <h2>{menuitem.name}</h2>
+                                </CardTitle>
+                                <CardText>
+                                    <p>{menuitem.description}</p>
+                                    <h3>{menuitem.cost}</h3> 
+                                </CardText>
+                        {/* TODO:  button below needs to launch modal. */}
+                                <Button>Order Now</Button>
+                            </CardBody>
+                        </Card>
+                    </div>
                     
-                    
-
-                    </Card>
                 </div>
             );
         });
