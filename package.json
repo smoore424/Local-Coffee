@@ -14,7 +14,9 @@
     "react-popper": "^2.2.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "reactstrap": "^8.5.1"
+    "reactstrap": "^8.5.1",
+    "typeface-fira-sans": "0.0.75",
+    "typeface-open-sans": "0.0.75"
   },
   "scripts": {
     "start": "react-scripts start",
