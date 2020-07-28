@@ -1,9 +1,8 @@
 //TODO fix google map on small device
-//TODO form validation
-
+//TODO don't allow form to submit if validation errors exist.
 
 import React, { Component } from 'react';
-import { Form, FormGroup, Label, Input, Col, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Col, Button, FormFeedback } from 'reactstrap';
 
 class Contact extends Component {
 
@@ -11,13 +10,52 @@ class Contact extends Component {
         super(props);
 
         this.state = {
-            name: '',
+            senderName: '',
             email: '',
-            feedback: ''
+            feedback: '',
+            touched: {
+                senderName: false,
+                email: false,
+                feedback: false
+            }
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    validate(senderName, email, feedback) {
+        const errors = {
+            senderName: '',
+            email: '',
+            feedback: ''
+        };
+
+        if (this.state.touched.senderName) {
+            if (senderName.length < 2) {
+                errors.senderName = 'Name must be at least 2 characters.';
+            } else if (senderName.length > 15) {
+                errors.senderName = 'Name must be less than 15 characters.';
+            }
+        }
+
+        const validEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+
+        if(this.state.touched.email && !validEmail.test(email)) {
+            errors.email = "Please provide a valid email address.";
+        }
+
+        if (this.state.touched.feedback && (feedback.length < 1)) {
+            errors.feedback = 'Please provide your feedback'
+        }
+
+        return errors;
+    }
+
+    handleBlur = (field) => () => {
+        this.setState({
+            touched: {...this.state.touched, [field]: true}
+        });
     }
 
     handleInputChange(event) {
@@ -37,6 +75,9 @@ class Contact extends Component {
     }
 
     render() {
+
+        const errors = this.validate(this.state.senderName, this.state.email, this.state.feedback);
+
         return (
             <div className="container">
                 <div className="row row-content">
@@ -61,16 +102,20 @@ class Contact extends Component {
                     <div className="col-8 md-10 m-auto">
                         <Form onSubmit={this.handleSubmit}>
                             <FormGroup row>
-                                <Label htmlFor="name">Name:</Label>
+                                <Label htmlFor="senderName">Name:</Label>
                                 <Input 
                                     type="text" 
-                                    name="name" 
-                                    id="name" 
+                                    name="senderName" 
+                                    id="senderName" 
                                     placeholder="Name" 
-                                    value={this.state.name}
+                                    value={this.state.senderName}
+                                    invalid={errors.senderName}
+                                    onBlur={this.handleBlur("senderName")}
                                     onChange={this.handleInputChange}
                                 />
+                                <FormFeedback>{errors.senderName}</FormFeedback>
                             </FormGroup>
+
                             <FormGroup row>
                                 <Label htmlFor="email">Email:</Label>
                                 <Input 
@@ -79,9 +124,13 @@ class Contact extends Component {
                                     id="email" 
                                     placeholder="Email" 
                                     value={this.state.email}
+                                    invalid={errors.email}
+                                    onBlur={this.handleBlur("email")}
                                     onChange={this.handleInputChange}    
                                 />
+                                <FormFeedback>{errors.email}</FormFeedback>
                             </FormGroup>
+
                             <FormGroup row>
                                 <Label for="feedback">Feedback:</Label>
                                 <Input 
@@ -90,8 +139,11 @@ class Contact extends Component {
                                     id="feedback" 
                                     rows="8"
                                     value={this.state.feedback}
+                                    invalid={errors.feedback}
+                                    onBlur={this.handleBlur("feedback")}
                                     onChange={this.handleInputChange}>    
                                 </Input>
+                                <FormFeedback>{errors.feedback}</FormFeedback>
                             </FormGroup>
         
                             <FormGroup row>

@@ -5,7 +5,7 @@
 //TODO: uniform card sizes
 
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardGroup, Modal, ModalHeader, ModalBody, Button, CardFooter} from 'reactstrap';
 import { MENUITEMS } from '../shared/menuitems';
 
 class Menu extends Component {
@@ -29,26 +29,26 @@ class Menu extends Component {
     render() {
         const menu = this.props.menuitems.map(menuitem => {
             return(
-                        <div key={menuitem.id} className="col-md-4">
-                            <Card>
-                                <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
-                                <CardBody>
-                                    <CardTitle>
-                                        <h2>{menuitem.name}</h2>
-                                    </CardTitle>
-                                    <CardText>
-                                        <p>{menuitem.description}</p>
-                                        <h3>{menuitem.cost}</h3> 
-                                    </CardText>
-                                    <Button onClick={this.toggleModal} color="primary">Order Now</Button>
-                                    <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                                        <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
-                                        <ModalBody>
-                                        <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
-                                    </ModalBody>                        
-                                    </Modal>
-                                </CardBody>
-                            </Card>
+                <div key={menuitem.id} className="col-md-4">
+                    <Card>
+                        <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
+                        <CardBody>
+                            <CardTitle>
+                                <h2>{menuitem.name}</h2>
+                            </CardTitle>
+                            <CardText>
+                                <p>{menuitem.description}</p>
+                                <h3>{menuitem.cost}</h3> 
+                            </CardText>
+                            <Button onClick={this.toggleModal} color="primary" id={menuitem.id}>Order Now</Button>
+                            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                                <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
+                                <ModalBody>
+                                <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+                            </ModalBody>                        
+                            </Modal>
+                        </CardBody>
+                    </Card>
                 </div>
             );
         });
@@ -56,6 +56,12 @@ class Menu extends Component {
         return (
             <div className="container">
                 <div className="row">
+                    <div className="col m-4">
+                        <h2 className="text-center">Explore Our Menu</h2>
+                    </div>
+                </div>
+                <div className="row">
+
                     {menu}
                 </div>
             </div>
