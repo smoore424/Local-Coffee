@@ -1,5 +1,4 @@
 //TODO fix google map on small device
-//TODO fix button styling
 //TODO form validation
 
 
@@ -96,7 +95,7 @@ class Contact extends Component {
                             </FormGroup>
         
                             <FormGroup row>
-                                <Button type="submit" className="btn btn-primary">Send Feedback</Button>
+                                <Button type="submit" color="primary">Send Feedback</Button>
                             </FormGroup>
                         </Form>
                     </div>
