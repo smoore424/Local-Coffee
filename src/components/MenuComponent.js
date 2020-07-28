@@ -2,13 +2,11 @@
 //TODO: add a heading to the page
 //TODO: Fix image sizes and re-upload into assets
 //TODO: get correct image to show when modal toggled.
-//TODO: build form on modal
 //TODO: uniform card sizes
 
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, Modal, ModalHeader, ModalBody, Button} from 'reactstrap';
 import { MENUITEMS } from '../shared/menuitems';
-
 
 class Menu extends Component {
 
@@ -42,7 +40,7 @@ class Menu extends Component {
                                         <p>{menuitem.description}</p>
                                         <h3>{menuitem.cost}</h3> 
                                     </CardText>
-                                    <Button onClick={this.toggleModal}>Order Now</Button>
+                                    <Button onClick={this.toggleModal} color="primary">Order Now</Button>
                                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                                         <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
                                         <ModalBody>

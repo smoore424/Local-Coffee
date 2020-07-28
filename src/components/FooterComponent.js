@@ -1,4 +1,3 @@
-//TODO fix on hoover styles
 //TODO fix social buttons problem may be with the version of bootstrap i am using.
 
 import React, { Component } from 'react';
@@ -20,13 +19,13 @@ function Footer(props) {
                     </div>
                     <div className="col-6 col-sm-5 text-center">
                         <h5>Social</h5>
-                        <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/">
+                        <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/" target="_blank">
                             <i className="fa fa-instagram" />
                         </a>{' '}
-                        <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/"> 
+                        <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/" target="_blank"> 
                             <i className="fa fa-facebook" />
                         </a>{' '}
-                        <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/"> 
+                        <a className="btn btn-social-icon btn-twitter" href="http://twitter.com/" target="_blank"> 
                             <i className="fa fa-twitter" />
                         </a>
                     </div>
