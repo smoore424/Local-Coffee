@@ -1,6 +1,6 @@
 //TODO fix social buttons problem may be with the version of bootstrap i am using.
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Footer(props) {
@@ -12,15 +12,14 @@ function Footer(props) {
                         <h5>Links</h5>
                         <ul className="list-unstyled">
                             <li><Link className="link-styles" to='/home'>Home</Link></li>
-                            <li><Link className="link-styles" to='/about'>About</Link></li>
                             <li><Link className="link-styles" to='/menu'>Menu</Link></li>
                             <li><Link className="link-styles" to='/contact'>Contact</Link></li>
+                            <li><Link className="link-styles" to='/about'>About</Link></li>
                         </ul>
                     </div>
                     <div className="col-6 col-sm-5 text-center">
                         <h5>Social</h5>
-                        <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/" target="_blank">
-                            <i className="fa fa-instagram" />
+                        <a className="btn btn-social-icon btn-instagram" href="http://instagram.com/" target="_blank"><i className="fa fa-instagram" />
                         </a>{' '}
                         <a className="btn btn-social-icon btn-facebook" href="http://facebook.com/" target="_blank"> 
                             <i className="fa fa-facebook" />

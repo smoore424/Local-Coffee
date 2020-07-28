@@ -81,7 +81,7 @@ class Contact extends Component {
         return (
             <div className="container">
                 <div className="row row-content">
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                         <h3>Local Coffee Shop</h3>
                         <p>123 Main St. <br />
                             Anytown, USA <br />
@@ -89,7 +89,7 @@ class Contact extends Component {
                             local@coffee.com 
                         </p>
                     </div>
-                    <div className="col-6" id="map">
+                    <div className="col-12 col-md-6 mt-4" id="map">
                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2684.6029157221424!2d-116.9491032487251!3d47.711546279089696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5361c3194a096b7d%3A0xca53eb3e1e72fd5c!2sCity%20Hall-%20Post%20Falls!5e0!3m2!1sen!2sus!4v1595366203200!5m2!1sen!2sus" title="map" width="300" height="200" frameborder="0" style={{border:0}} allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                     </div>
                 </div>

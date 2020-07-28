@@ -1,12 +1,19 @@
 //TODO: add form to modal
 //TODO: add a heading to the page
-//TODO: Fix image sizes and re-upload into assets
 //TODO: get correct image to show when modal toggled.
 //TODO: uniform card sizes
 
 import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardGroup, Modal, ModalHeader, ModalBody, Button, CardFooter} from 'reactstrap';
+import { Link } from 'react-router-dom';
 import { MENUITEMS } from '../shared/menuitems';
+import { render } from '@testing-library/react';
+
+function RenderMenuItem({menuitem}) {
+    return (
+            <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+    );
+}
 
 class Menu extends Component {
 
@@ -31,7 +38,7 @@ class Menu extends Component {
             return(
                 <div key={menuitem.id} className="col-md-4">
                     <Card>
-                        <CardImg src={menuitem.image} alt={menuitem.name} width="200" height="200"/>
+                        <CardImg src={menuitem.image} alt={menuitem.name} />
                         <CardBody>
                             <CardTitle>
                                 <h2>{menuitem.name}</h2>
@@ -40,11 +47,11 @@ class Menu extends Component {
                                 <p>{menuitem.description}</p>
                                 <h3>{menuitem.cost}</h3> 
                             </CardText>
-                            <Button onClick={this.toggleModal} color="primary" id={menuitem.id}>Order Now</Button>
+                            <Button onClick={this.toggleModal} color="primary">Order Now</Button>
                             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                                <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
-                                <ModalBody>
-                                <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+                            <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
+                            <ModalBody>
+                                <RenderMenuItem menuitem={menuitem} />
                             </ModalBody>                        
                             </Modal>
                         </CardBody>
@@ -67,6 +74,8 @@ class Menu extends Component {
             </div>
         );
     }
+
 }
+
 
 export default Menu;
