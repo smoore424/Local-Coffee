@@ -7,7 +7,6 @@ import React, { Component } from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, CardGroup, Modal, ModalHeader, ModalBody, Button, CardFooter} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { MENUITEMS } from '../shared/menuitems';
-import { render } from '@testing-library/react';
 
 function RenderMenuItem({menuitem}) {
     return (
@@ -36,27 +35,29 @@ class Menu extends Component {
     render() {
         const menu = this.props.menuitems.map(menuitem => {
             return(
-                <div key={menuitem.id} className="col-md-4">
-                    <Card>
-                        <CardImg src={menuitem.image} alt={menuitem.name} />
-                        <CardBody>
-                            <CardTitle>
-                                <h2>{menuitem.name}</h2>
-                            </CardTitle>
-                            <CardText>
-                                <p>{menuitem.description}</p>
-                                <h3>{menuitem.cost}</h3> 
-                            </CardText>
-                            <Button onClick={this.toggleModal} color="primary">Order Now</Button>
-                            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                            <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
-                            <ModalBody>
-                                <RenderMenuItem menuitem={menuitem} />
-                            </ModalBody>                        
-                            </Modal>
-                        </CardBody>
-                    </Card>
+                
+                    <div key={menuitem.id} className="col-md-4">
+                        <Card className="h-100">
+                            <CardImg src={menuitem.image} alt={menuitem.name} />
+                            <CardBody>
+                                <CardTitle>
+                                    <h2>{menuitem.name}</h2>
+                                </CardTitle>
+                                <CardText>
+                                    <p>{menuitem.description}</p>
+                                    <h3>{menuitem.cost}</h3> 
+                                </CardText>
+                                <Button className="stretched-link" onClick={this.toggleModal} color="primary">Order Now</Button>
+                                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                                <ModalHeader toggle={this.toggleModal}>Customize</ModalHeader>
+                                <ModalBody>
+                                    <RenderMenuItem menuitem={menuitem} />
+                                </ModalBody>                        
+                                </Modal>
+                            </CardBody>
+                        </Card>
                 </div>
+
             );
         });
 
