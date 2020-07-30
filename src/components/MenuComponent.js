@@ -4,13 +4,124 @@
 //TODO: uniform card sizes
 
 import React, { Component } from 'react';
-import { Card, CardImg, CardText, CardBody, CardTitle, CardGroup, Modal, ModalHeader, ModalBody, Button, CardFooter} from 'reactstrap';
+import { Card, CardImg, CardText, CardBody, CardTitle, CardGroup, Modal, ModalHeader, ModalBody, Button, CardFooter, Form, FormGroup, Input, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { MENUITEMS } from '../shared/menuitems';
 
 function RenderMenuItem({menuitem}) {
     return (
-            <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+        <div className="container">
+            <div className="row">
+                <div className="col">
+                    <img src={menuitem.image} alt={menuitem.name} width="200" height="200" /> 
+                </div>
+                <div className="col">
+                    <Form>
+                        <FormGroup row>
+                            <label htmlFor="size">Size</label>
+                            <Input
+                                type="select"
+                                name="size"
+                                id="size"
+                            >
+                                <option>Tall</option>
+                                <option>Grande</option>
+                                <option>Venti</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="creamSugar"
+                                id="cream">
+                            </Input>
+                            <Label check htmlFor="cream">cream</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="creamSugar"
+                                id="sugar">
+                            </Input>
+                            <Label check htmlFor="sugar">sugar</Label>
+                        </FormGroup>
+                        <FormGroup check inline className="mt-4">
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="carmel">
+                            </Input>
+                            <Label check htmlFor="carmel">carmel</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="cinnamon">
+                            </Input>
+                            <Label check htmlFor="cinnamon">cinnamon</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="raspberry">
+                            </Input>
+                            <Label check htmlFor="raspberry">raspberry</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="orange">
+                            </Input>
+                            <Label check htmlFor="orange">orange</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="toffee">
+                            </Input>
+                            <Label check htmlFor="toffee">toffee</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="vanilla">
+                            </Input>
+                            <Label check htmlFor="vanilla">vanilla</Label>
+                        </FormGroup>
+                        <FormGroup check inline>
+                            <Input
+                                type="checkbox"
+                                name="flavor"
+                                id="sugar">
+                            </Input>
+                            <Label check htmlFor="sugar">sugar</Label>
+                        </FormGroup>
+                        <FormGroup row className="mt-4">
+                            <label htmlFor="qty">Quanity</label>
+                            <Input
+                                type="select"
+                                name="qty"
+                                id="qty"
+                            >
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                            </Input>
+                        </FormGroup>
+                        <FormGroup row className="mt-4">
+                            <Button type="submit" color="primary">Add to Order</Button>
+                        </FormGroup>
+                    </Form>
+                </div>
+            </div>
+        </div>
+        
+
     );
 }
 
